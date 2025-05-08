@@ -101,6 +101,9 @@ vim.g.loaded_node_provider = nil
 -- NOTE: You can change these options as you wish!
 --  For more options, you can see `:help option-list`
 
+-- How many spaces a tab takes up VISUALLY`
+vim.opt.tabstop = 4
+
 -- Make line numbers default
 vim.opt.number = true
 -- You can also add relative line numbers, to help with jumping.
