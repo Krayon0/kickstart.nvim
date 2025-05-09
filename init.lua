@@ -103,6 +103,8 @@ vim.g.loaded_node_provider = nil
 
 -- How many spaces a tab takes up VISUALLY`
 vim.opt.tabstop = 4
+-- How many spaces to add when autoindenting (>>)
+vim.opt.shiftwidth = 4
 
 -- Make line numbers default
 vim.opt.number = true
