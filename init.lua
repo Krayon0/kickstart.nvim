@@ -105,6 +105,8 @@ vim.g.loaded_node_provider = nil
 vim.opt.tabstop = 4
 -- How many spaces to add when autoindenting (>>)
 vim.opt.shiftwidth = 4
+-- Use spaces instead of tabs
+vim.opt.expandtab = true
 
 -- Make line numbers default
 vim.opt.number = true
@@ -633,6 +635,7 @@ require('lazy').setup({
       -- See :help vim.diagnostic.Opts
       vim.diagnostic.config {
         severity_sort = true,
+        update_in_insert = true,
         float = { border = 'rounded', source = 'if_many' },
         underline = { severity = vim.diagnostic.severity.ERROR },
         signs = vim.g.have_nerd_font and {
@@ -646,6 +649,7 @@ require('lazy').setup({
         virtual_text = {
           source = 'if_many',
           spacing = 2,
+          update_in_insert = true,
           format = function(diagnostic)
             local diagnostic_message = {
               [vim.diagnostic.severity.ERROR] = diagnostic.message,
@@ -775,10 +779,10 @@ require('lazy').setup({
         -- python = { "isort", "black" },
         --
         -- You can use 'stop_after_first' to run the first available formatter from the list
-        javascript = { 'eslint_d', 'prettierd' },
-        javascriptreact = { 'eslint_d', 'prettierd' },
-        typescript = { 'eslint_d', 'prettierd' },
-        typescriptreact = { 'eslint_d', 'prettierd' },
+        javascript = { 'prettierd' },
+        javascriptreact = { 'prettierd' },
+        typescript = { 'prettierd' },
+        typescriptreact = { 'prettierd' },
         json = { 'prettierd' },
         html = { 'prettierd' },
         css = { 'prettierd' },
@@ -1009,10 +1013,10 @@ require('lazy').setup({
   --
   -- require 'kickstart.plugins.debug',
   -- require 'kickstart.plugins.indent_line',
-  -- require 'kickstart.plugins.lint',
-  -- require 'kickstart.plugins.autopairs',
+  require 'kickstart.plugins.lint',
+  require 'kickstart.plugins.autopairs',
   require 'kickstart.plugins.neo-tree',
-  -- require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
+  require 'kickstart.plugins.gitsigns', -- adds gitsigns recommend keymaps
 
   -- NOTE: The import below can automatically add your own plugins, configuration, etc from `lua/custom/plugins/*.lua`
   --    This is the easiest way to modularize your config.
